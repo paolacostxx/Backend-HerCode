@@ -1,0 +1,30 @@
+# Build results
+bin/
+obj/
+
+# ASP.NET temp files
+.vs/
+*.db
+*.bak
+*.log
+
+# User-specific files
+*.user
+*.suo
+
+# DLLs, executáveis e outputs
+*.dll
+*.exe
+*.pdb
+*.cache
+*.mdb
+
+# Entity Framework
+Migrations/
+
+# Logs
+logs/
+*.log
+
+# Configurações locais
+appsettings.Development.json
