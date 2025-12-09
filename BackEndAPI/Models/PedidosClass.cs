@@ -1,16 +1,15 @@
-
-public class PedidoClass
+public class Pedido
 {
     public int Id { get; set; }
     public int IdVeiculo { get; set; }
 
-    public string NumeroPedido { get; set; }
-    public string StatusPedido { get; set; }
-    public DateTime DataPedido { get; set; }
-    public DateTime AtualizadoEm { get; set; }
+    public required string NumeroPedido { get; set; }
+    public required string StatusPedido { get; set; }
+    public required DateTime DataPedido { get; set; }
+    public DateTime AtualizadoEm { get; set; } = DateTime.UtcNow;
 
-    public VeiculoClass Veiculo { get; set; }
+    public Veiculo? Veiculo { get; set; }
 
-    // // Relacionamento com Cliente
-     public ICollection<ClienteClass> Clientes { get; set; }
+    // Relacionamento com Cliente
+    public ICollection<Cliente> Clientes { get; set; } = new List<Cliente>();
 }
