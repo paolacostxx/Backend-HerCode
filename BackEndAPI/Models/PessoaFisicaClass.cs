@@ -1,10 +1,11 @@
+namespace BackEndAPI.Models;
+
 public class PessoaFisica
 {
     public int Id { get; set; }
-    public required int IdCliente { get; set; }
+    public string CPF { get; set; } = string.Empty;
 
-    public required string Cpf { get; set; }
-    public required DateTime DataNascimento { get; set; }
-
-    public Cliente? Cliente { get; set; }
+    // FK obrigatória apontando para Cliente (dependente)
+    public int ClienteId { get; set; }
+    public Cliente Cliente { get; set; } = null!;
 }

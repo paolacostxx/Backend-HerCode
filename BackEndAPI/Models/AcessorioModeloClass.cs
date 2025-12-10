@@ -1,3 +1,5 @@
+namespace BackEndAPI.Models;
+
 public class AcessorioModelo
 {
     public int IdAcessorio { get; set; }

@@ -1,3 +1,5 @@
+
+namespace BackEndAPI.Models;
 public class Telefone
 {
     public int Id { get; set; }

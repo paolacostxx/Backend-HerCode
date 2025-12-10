@@ -1,30 +1,21 @@
-# Build results
+# Build
 bin/
 obj/
 
-# ASP.NET temp files
-.vs/
-*.db
-*.bak
-*.log
+# VSCode
+.vscode/
 
-# User-specific files
-*.user
-*.suo
-
-# DLLs, executáveis e outputs
+# ASP.NET
 *.dll
 *.exe
 *.pdb
 *.cache
-*.mdb
-
-# Entity Framework
-Migrations/
-
-# Logs
-logs/
+*.db
 *.log
 
-# Configurações locais
-appsettings.Development.json
+# User files
+*.user
+*.swp
+
+# EF
+Migrations/

@@ -1,3 +1,5 @@
+namespace BackEndAPI.Models;
+
 public class Pedido
 {
     public int Id { get; set; }

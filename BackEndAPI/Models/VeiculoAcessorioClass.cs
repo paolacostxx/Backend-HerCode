@@ -1,3 +1,5 @@
+namespace BackEndAPI.Models;
+
 public class VeiculoAcessorio
 {
     public required int IdVeiculo { get; set; }

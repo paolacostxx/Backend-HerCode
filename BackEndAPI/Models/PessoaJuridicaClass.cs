@@ -1,10 +1,11 @@
+
+namespace BackEndAPI.Models;
 public class PessoaJuridica
 {
     public int Id { get; set; }
-    public required int IdCliente { get; set; }
+    public string CNPJ { get; set; } = string.Empty;
 
-    public required string Cnpj { get; set; }
-    public required string RazaoSocial { get; set; }
-
-    public Cliente? Cliente { get; set; }
+    // FK obrigatória apontando para Cliente (dependente)
+    public int ClienteId { get; set; }
+    public Cliente Cliente { get; set; } = null!;
 }

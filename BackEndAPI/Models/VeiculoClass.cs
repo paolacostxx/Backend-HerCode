@@ -1,3 +1,5 @@
+
+namespace BackEndAPI.Models;
 public class Veiculo
 {
     public int Id { get; set; }
