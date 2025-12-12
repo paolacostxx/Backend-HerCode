@@ -1,18 +1,21 @@
-
-namespace BackEndAPI.Models;
-public class Endereco
+namespace BackEndAPI.Models
 {
-    public int Id { get; set; }
-    public required int IdCliente { get; set; }
+    public class Endereco
+    {
+        public int Id { get; set; } // nome da PK padronizado
 
-    public required string Tipo { get; set; }
-    public required string Numero { get; set; }
-    public required string Rua { get; set; }
-    public required string Cep { get; set; }
-    public string? Complemento { get; set; }
-    public required string Bairro { get; set; }
-    public required string Cidade { get; set; }
-    public required string Estado { get; set; }
+        public int UsuarioId { get; set; } // FK
 
-    public Cliente? Cliente { get; set; }
+        public string Cep { get; set; } = string.Empty;
+        public string Numero { get; set; } = string.Empty;
+        public string Logradouro { get; set; } = string.Empty;
+        public string? Complemento { get; set; }
+        public string Bairro { get; set; } = string.Empty;
+        public string Cidade { get; set; } = string.Empty;
+        public string Estado { get; set; } = string.Empty;
+
+        
+        public Usuario Usuario { get; set; } = null!;
+
+    }
 }

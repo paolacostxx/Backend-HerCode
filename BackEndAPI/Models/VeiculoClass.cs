@@ -1,12 +1,20 @@
-
-namespace BackEndAPI.Models;
-public class Veiculo
+namespace BackEndAPI.Models
 {
-    public required int IdModelo { get; set; }
+    public class Veiculo
+    {
+        public int Id { get; set; } // PK padronizada
 
-    public required int Ano { get; set; }
-    public required string Cor { get; set; }
-    public required string Chassis { get; set; }
+        // FK
+        public int PedidoId {get; set; }
 
-    public ICollection<VeiculoAcessorio> VeiculosAcessorios { get; set; } = new List<VeiculoAcessorio>();
+        public int IdChassi { get; set; }
+        public string NomeVeiculo { get; set; } = string.Empty;
+        public string ModeloVeiculo { get; set; } = string.Empty;
+        public string Versao { get; set; } = string.Empty;
+        public int Ano { get; set; }
+        public string Cor { get; set; } = string.Empty;
+
+        // Navegação
+        public Pedido Pedido { get; set; } = null!;
+    }
 }
