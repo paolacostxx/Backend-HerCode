@@ -2,13 +2,13 @@ namespace BackEndAPI.Models
 {
     public class Usuario
     {
-        public int Id { get; set; } // PK
-        public string NomeFantasia { get; set; }
-        public string Razao { get; set; } = string.Empty;
-        public string Documento { get; set; }
-        public string Data { get; set; }
-        public string Login { get; set; }
-        public string Senha { get; set; }
+        public required int Id { get; set; } // PK
+        public required string NomeFantasia { get; set; }
+        public required string Razao { get; set; } = string.Empty;
+        public required string Documento { get; set; }
+        public required string Data { get; set; }
+        public required string Login { get; set; }
+        public required string Senha { get; set; }
         public Boolean Tipo {get; set;}
         public Boolean Vendedor {get; set;}
 
