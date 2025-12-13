@@ -76,8 +76,22 @@ namespace BackEndAPI.Controllers
         // POST: api/Contatos
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Contato>> PostContato(Contato contato)
+        public async Task<ActionResult<Contato>> PostContato(ContatoDto dto)
         {
+            // Verifica se o usuário existe antes de criar o contato
+            var usuario = await _context.Usuario.FindAsync(dto.UsuarioId);
+            if (usuario == null)
+            {
+                return NotFound($"Usuário com ID {dto.UsuarioId} não encontrado.");
+            }
+
+            var contato = new Contato
+            {
+                NumeroContato = dto.NumeroContato,
+                EnderecoEmail = dto.EnderecoEmail,
+                UsuarioId = dto.UsuarioId
+            };
+
             _context.Contato.Add(contato);
             await _context.SaveChangesAsync();
 

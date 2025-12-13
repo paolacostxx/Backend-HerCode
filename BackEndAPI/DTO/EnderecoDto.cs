@@ -1,6 +1,6 @@
 public class EnderecoDto
 {
-    public int UsuarioId { get; set; }
+    public int UsuarioId { get; set; }       // FK obrigatória
     public string Cep { get; set; } = string.Empty;
     public string Numero { get; set; } = string.Empty;
     public string Logradouro { get; set; } = string.Empty;
@@ -9,4 +9,3 @@ public class EnderecoDto
     public string Cidade { get; set; } = string.Empty;
     public string Estado { get; set; } = string.Empty;
 }
-

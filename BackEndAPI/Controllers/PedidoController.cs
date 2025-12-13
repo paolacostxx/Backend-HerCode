@@ -76,13 +76,33 @@ namespace BackEndAPI.Controllers
         // POST: api/Pedido
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Pedido>> PostPedido(Pedido pedido)
+public async Task<ActionResult<Pedido>> PostPedido(PedidoDto dto)
+{
+    // Mapeia o DTO para a entidade
+    var pedido = new Pedido
+    {
+        Status = dto.Status,
+        DataPedido = dto.DataPedido,
+        ClienteId = dto.ClienteId,
+        VendedorId = dto.VendedorId,
+        Veiculos = dto.Veiculos.Select(v => new Veiculo
         {
-            _context.Pedido.Add(pedido);
-            await _context.SaveChangesAsync();
+            IdChassi = v.IdChassi,
+            NomeVeiculo = v.NomeVeiculo,
+            ModeloVeiculo = v.ModeloVeiculo,
+            Versao = v.Versao,
+            Ano = v.Ano,
+            Cor = v.Cor
+        }).ToList()
+    };
 
-            return CreatedAtAction("GetPedido", new { id = pedido.Id }, pedido);
-        }
+    // Salva no banco
+    _context.Pedido.Add(pedido);
+    await _context.SaveChangesAsync();
+
+    return CreatedAtAction("GetPedido", new { id = pedido.Id }, pedido);
+}
+
 
         // DELETE: api/Pedido/5
         [HttpDelete("{id}")]

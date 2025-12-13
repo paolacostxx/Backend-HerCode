@@ -73,11 +73,21 @@ namespace BackEndAPI.Controllers
             return NoContent();
         }
 
-        // POST: api/Enderecos
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Endereco>> PostEndereco(Endereco endereco)
+        public async Task<ActionResult<Endereco>> PostEndereco(EnderecoDto dto)
         {
+            var endereco = new Endereco
+            {
+                UsuarioId = dto.UsuarioId,
+                Cep = dto.Cep,
+                Numero = dto.Numero,
+                Logradouro = dto.Logradouro,
+                Complemento = dto.Complemento,
+                Bairro = dto.Bairro,
+                Cidade = dto.Cidade,
+                Estado = dto.Estado
+            };
+
             _context.Endereco.Add(endereco);
             await _context.SaveChangesAsync();
 

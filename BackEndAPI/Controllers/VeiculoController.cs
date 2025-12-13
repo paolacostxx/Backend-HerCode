@@ -73,16 +73,33 @@ namespace BackEndAPI.Controllers
             return NoContent();
         }
 
-        // POST: api/Veiculo
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPost]
-        public async Task<ActionResult<Veiculo>> PostVeiculo(Veiculo veiculo)
+       [HttpPost]
+    public async Task<ActionResult<Veiculo>> PostVeiculo(VeiculoDto dto)
+    {
+        // Verifica se existe o pedido relacionado
+        var pedido = await _context.Pedido.FindAsync(dto.PedidoId);
+        if (pedido == null)
         {
-            _context.Veiculo.Add(veiculo);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetVeiculo", new { id = veiculo.Id }, veiculo);
+            return NotFound($"Pedido com ID {dto.PedidoId} não encontrado.");
         }
+
+        var veiculo = new Veiculo
+        {
+            PedidoId = dto.PedidoId,
+            IdChassi = dto.IdChassi,
+            NomeVeiculo = dto.NomeVeiculo,
+            ModeloVeiculo = dto.ModeloVeiculo,
+            Versao = dto.Versao,
+            Ano = dto.Ano,
+            Cor = dto.Cor
+        };
+
+        _context.Veiculo.Add(veiculo);
+        await _context.SaveChangesAsync();
+
+        return CreatedAtAction("GetVeiculo", new { id = veiculo.Id }, veiculo);
+    }
+
 
         // DELETE: api/Veiculo/5
         [HttpDelete("{id}")]

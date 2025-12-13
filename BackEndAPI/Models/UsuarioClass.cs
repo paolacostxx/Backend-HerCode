@@ -2,7 +2,7 @@ namespace BackEndAPI.Models
 {
     public class Usuario
     {
-        public required int Id { get; set; } // PK
+        public int Id { get; set; } // PK
         public required string NomeFantasia { get; set; }
         public required string Razao { get; set; } = string.Empty;
         public required string Documento { get; set; }
