@@ -1,6 +1,6 @@
 # BackEndAPI
 
-Esse é um projeto voltado para criação de uma interface que conecta a experiência do cliente da compra até a entrega do veículo. Este projeto demonstra o uso de DTOs, estrutura de camadas Controllers, Data, Models e configuração para Docker.
+Esse é um projeto voltado para criação de uma interface que conecta a experiência do cliente da compra até a entrega do veículo, feito para fins didáticos. Este projeto demonstra o uso de DTOs, estrutura de camadas Controllers, Data, Models e configuração para Docker.
 
 ## Tecnologias e Ferramentas
 
